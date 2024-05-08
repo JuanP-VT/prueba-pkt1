@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
-export default function Navegación() {
+import { UsuarioID } from "../../types/Usuario";
+import BotónSesión from "../ui/BotónDeSesión";
+
+type Props = {
+  usuario: UsuarioID | null;
+};
+export default function Navegación({ usuario }: Props) {
   return (
-    <div className="w-full h-12">
-      <Link to="/sesión">Iniciar Sesión</Link>
+    <div className="w-full h-15 flex border shadow-2xl py-3 rounded-lg justify-around">
       <Link to="/">Inicio</Link>
+      <BotónSesión usuario={usuario} />
     </div>
   );
 }
