@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { useState } from "react";
-import { Usuario } from "../../types/Usuario";
+import { Usuario, UsuarioID } from "../../types/Usuario";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { PuffLoader } from "react-spinners";
 import { ZodError } from "zod";
@@ -9,11 +9,15 @@ import {
   validarContraseña,
   validarNombreDeUsuario,
 } from "../../validación/Usuario";
+import { redirect } from "react-router-dom";
 /**
  *
  * Componente para registrar nuevos usuarios
  */
-export default function FormularioNuevoUsuario() {
+type Props = {
+  usuario: UsuarioID | null;
+};
+export default function FormularioNuevoUsuario({ usuario }: Props) {
   //Estado para guardar la información del usuario
   const [formulario, setFormulario] = useState<Usuario>({
     nombre: "",
@@ -27,6 +31,11 @@ export default function FormularioNuevoUsuario() {
   const [feedBack, setFeedback] = useState("");
   const [errorEnElNombre, setErrorEnElNombre] = useState(false);
   const [errorEnLaContraseña, setErrorEnLaContraseña] = useState(false);
+  //Desviar al usuario si ya está autenticado
+  if (usuario) {
+    redirect("/");
+    return <></>; //retornar jsx para evitar conflicto con typescript
+  }
   //Definimos la función para manejar la petición del formulario
   async function manejarPetición(ev: React.FormEvent) {
     setCargando(true);
