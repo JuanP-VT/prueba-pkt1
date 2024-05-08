@@ -19,7 +19,7 @@ rutaUsuarios.post("/", async (req, res) => {
     ValidarUsuario.parse(usuario);
   } catch (error) {
     //Retorna al frontend el error de validación
-    return res.json({ message: error }).status(400);
+    return res.status(400).json({ message: error });
   }
   //Después de validar la solicitud exitosamente
   //Verificamos que el nombre de usuario no exista en la base de datos
@@ -28,7 +28,7 @@ rutaUsuarios.post("/", async (req, res) => {
   });
   //Retornar un error si el usuario ya existe
   if (encontrarUsuario) {
-    return res.json({ message: "El usuario ya existe" }).status(400);
+    return res.status(409).json({ message: "El usuario ya existe" });
   }
 
   try {
@@ -45,7 +45,7 @@ rutaUsuarios.post("/", async (req, res) => {
     return res.json({ message: "Usuario creado exitosamente" }).status(200);
   } catch (error) {
     console.error(error);
-    return res.json({ message: error }).status(500);
+    return res.status(500).json({ message: error });
   }
 });
 
