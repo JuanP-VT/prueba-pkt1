@@ -16,7 +16,6 @@ export default function getUsuario(): UsuarioID | null {
     return {
       nombre: decode.nombre,
       _id: decode._id,
-      contraseña: "", //Para evitar que typescript se queje (se podría crear otra interfaz sin contraseña)
     };
   }
   return null;
