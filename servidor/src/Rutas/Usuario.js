@@ -9,6 +9,7 @@ const bcrypt = require("bcrypt");
  *
  */
 rutaUsuarios.post("/", async (req, res) => {
+  //Extraemos el cuerpo de la petición
   const nombre = req.body.nombre;
   const contraseña = req.body.contraseña;
   const usuario = { nombre, contraseña };
@@ -17,7 +18,8 @@ rutaUsuarios.post("/", async (req, res) => {
   try {
     ValidarUsuario.parse(usuario);
   } catch (error) {
-    res.json({ message: error }).status(400);
+    //Retorna al frontend el error de validación
+    return res.json({ message: error }).status(400);
   }
   //Después de validar la solicitud exitosamente
   //Verificamos que el nombre de usuario no exista en la base de datos
@@ -26,9 +28,9 @@ rutaUsuarios.post("/", async (req, res) => {
   });
   //Retornar un error si el usuario ya existe
   if (encontrarUsuario) {
-    res.json({ message: "El usuario ya existe" }).status(400);
-    return;
+    return res.json({ message: "El usuario ya existe" }).status(400);
   }
+
   try {
     //Encriptar la contraseña
     const salt = await bcrypt.genSalt(10);
@@ -40,10 +42,10 @@ rutaUsuarios.post("/", async (req, res) => {
     //Si el usuario no existe, crearlo
     const nuevoUsuario = new UsuarioModelo(nuevoUsuarioEncriptado);
     await nuevoUsuario.save();
-    res.json({ message: "Usuario creado exitosamente" }).status(200);
+    return res.json({ message: "Usuario creado exitosamente" }).status(200);
   } catch (error) {
     console.error(error);
-    res.json({ message: error }).status(500);
+    return res.json({ message: error }).status(500);
   }
 });
 
