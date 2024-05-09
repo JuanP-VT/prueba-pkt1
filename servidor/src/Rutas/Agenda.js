@@ -48,7 +48,7 @@ rutaAgenda.post("/", AutentificarJWT, async (req, res) => {
   }
   //Buscamos la agenda del usuario
   try {
-    const agenda = await AgendaModelo.findById(id);
+    const agenda = await AgendaModelo.findOne({ usuarioId: id });
     const contactosModificados = [...agenda.contactos, nuevoContacto];
     const agendaModificada = await AgendaModelo.findByIdAndUpdate(
       id,
@@ -58,6 +58,7 @@ rutaAgenda.post("/", AutentificarJWT, async (req, res) => {
 
     return res.json({ agenda: agendaModificada });
   } catch (error) {
+    console.error(error);
     return res.status(500).json({ message: "Error en la base de datos" });
   }
 });
