@@ -17,6 +17,8 @@ app.get("/", async (req, res) => {
 //Rutas
 const rutaUsuarios = require("./Rutas/Usuario");
 const rutaAuth = require("./Rutas/Auth");
+const rutaAgenda = require("./Rutas/Agenda");
 app.use("/usuario", rutaUsuarios);
 app.use("/auth", rutaAuth);
+app.use("/agenda", rutaAgenda);
 app.listen(process.env.PORT || 8080);
