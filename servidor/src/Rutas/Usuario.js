@@ -42,10 +42,10 @@ rutaUsuarios.post("/", async (req, res) => {
     //Si el usuario no existe, crearlo
     const nuevoUsuario = new UsuarioModelo(nuevoUsuarioEncriptado);
     await nuevoUsuario.save();
-    //Después de guardar al usuario, creamos una colección para sus agenda
+    //Después de guardar al usuario, creamos una colección para su agenda
     const agendaModelo = require("../Modelos/Agenda");
     const nuevoAgenda = new agendaModelo({
-      _id: nuevoUsuario._id,
+      usuarioId: nuevoUsuario._id,
       usuario: nuevoUsuario.nombre,
       contactos: [],
     });

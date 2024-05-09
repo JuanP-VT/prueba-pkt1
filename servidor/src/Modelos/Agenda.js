@@ -16,7 +16,7 @@ const ContactoSchema = new mongoose.Schema({
   direcciones: [DireccionesSchema],
 });
 const AgendaSchema = new mongoose.Schema({
-  _id: String, //MongodbID del usuario
+  usuarioId: String, //MongodbID del usuario
   usuario: String, //Nombre del usuario al que pertenece la agenda
   contactos: [ContactoSchema],
 });

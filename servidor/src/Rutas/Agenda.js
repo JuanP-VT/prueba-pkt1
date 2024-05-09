@@ -10,10 +10,11 @@ const AutentificarJWT = require("../middleware/AutentificarJWT");
  * @param {headers: {Authorization: string}}
  */
 rutaAgenda.get("/", AutentificarJWT, async (req, res) => {
-  //Extraemos el id del token
   const id = req.user._id;
+  //Extraemos el id del token
   try {
-    const agenda = await AgendaModelo.findById(id);
+    const agenda = await AgendaModelo.findOne({ usuarioId: id });
+
     res.json(agenda);
   } catch (error) {
     res.status(500).json({ message: "Error Interno" });
@@ -54,6 +55,7 @@ rutaAgenda.post("/", AutentificarJWT, async (req, res) => {
       { contactos: contactosModificados },
       { new: true }
     );
+
     return res.json({ agenda: agendaModificada });
   } catch (error) {
     return res.status(500).json({ message: "Error en la base de datos" });
