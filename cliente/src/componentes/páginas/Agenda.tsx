@@ -3,14 +3,13 @@
  */
 
 import { redirect } from "react-router-dom";
-import { UsuarioID } from "../../types/Usuario";
+
 import FormularioNuevoContacto from "../compuestos/FormularioNuevoContacto";
+import ListadoDeContactos from "../compuestos/ListadoDeContactos";
+import getUsuario from "../../utils/getUsuario";
 
-type Props = {
-  usuario: UsuarioID | null;
-};
-
-export default function Agenda({ usuario }: Props) {
+export default function Agenda() {
+  const usuario = getUsuario();
   if (!usuario) {
     redirect("/auth");
     return;
@@ -18,6 +17,7 @@ export default function Agenda({ usuario }: Props) {
   return (
     <div>
       <FormularioNuevoContacto />
+      <ListadoDeContactos />
     </div>
   );
 }
