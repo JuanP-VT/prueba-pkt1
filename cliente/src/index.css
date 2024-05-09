@@ -1,3 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.raleway-unique-class {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Replace with the desired font weight */
+  font-style: normal;
+}
+/* For Chrome, Safari, and Opera */
+
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Color of the scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: #7caaee;
+}
+
+/* Color of the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Button on the scrollbar (not supported in Safari) */
+::-webkit-scrollbar-button {
+  background: #b3f7c4;
+}
+
+/* Piece of the scrollbar used for resizing (not supported in Safari) */
+::-webkit-scrollbar-track-piece {
+  background: #c4d6d6;
+}
