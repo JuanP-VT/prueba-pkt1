@@ -14,6 +14,7 @@ import crearContacto from "../../factory/crearContacto";
 import { validarCorreo, validarNombre } from "../../validación/Contactos";
 import { ZodError } from "zod";
 import { PuffLoader } from "react-spinners";
+
 /**
  * Componente para mostrar el formulario de nuevo contacto
  * Nota: Utilicé parte del código de la documentación de Material UI
@@ -100,35 +101,37 @@ function FormularioFlotante(props: SimpleDialogProps) {
       },
       body: JSON.stringify(nuevoContacto),
     });
+    //Manejar respuesta
     if (!respuesta.ok) {
       setCargando(false);
       setFeedback("Error en el servidor");
       return;
     }
+    setFeedback("Contacto creado");
+
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   }
 
   return (
     <Dialog onClose={handleClose} open={open}>
-      <DialogTitle className="sm:w-[350px] font-bold text-blue-500">
+      <DialogTitle className="text-blue-500 self-center">
         Nuevo Contacto
       </DialogTitle>
-      <form
-        className="p-2 flex flex-col pl-10 justify-center"
-        onSubmit={(ev) => manejarPetición(ev)}
-      >
-        <div>
-          <InputLabel htmlFor="nombre">Nombre</InputLabel>
-          <TextField
-            value={formulario.nombre}
-            error={errorEnElNombre}
-            onChange={(e) =>
-              setFormulario({ ...formulario, nombre: e.target.value })
-            }
-            inputProps={{ "data-testid": "nombre" }}
-            size="small"
-            placeholder="Nombre del contacto"
-          />
-        </div>
+      <form className="p-5" onSubmit={(ev) => manejarPetición(ev)}>
+        <InputLabel htmlFor="nombre">Nombre</InputLabel>
+        <TextField
+          value={formulario.nombre}
+          error={errorEnElNombre}
+          onChange={(e) =>
+            setFormulario({ ...formulario, nombre: e.target.value })
+          }
+          inputProps={{ "data-testid": "nombre" }}
+          size="small"
+          placeholder="Nombre del contacto"
+        />
+
         <div className="mt-2">
           <InputLabel htmlFor="apellido">Apellido</InputLabel>
           <TextField
