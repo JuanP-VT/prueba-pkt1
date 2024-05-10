@@ -120,7 +120,7 @@ rutaAgenda.put("/", AutentificarJWT, async (req, res) => {
  */
 rutaAgenda.delete("/", AutentificarJWT, async (req, res) => {
   //Extraemos el id del token
-  const id = req.user._id;
+  const id = req.body._id;
 
   //Validamos la petición
   //Solo validaremos un campo, por esta ocasión utilizaré validación manual y no la librería Zod
@@ -129,7 +129,7 @@ rutaAgenda.delete("/", AutentificarJWT, async (req, res) => {
   }
   //Buscamos la agenda del usuario
   try {
-    const agenda = await AgendaModelo.findOne({ usuarioId: id });
+    const agenda = await AgendaModelo.findOne({ usuarioId: req.user._id });
     const contactos = agenda.contactos;
     //Eliminamos el contacto
     const contactosModificados = contactos.filter(
@@ -140,6 +140,7 @@ rutaAgenda.delete("/", AutentificarJWT, async (req, res) => {
     });
     return res.json({ agenda: agendaModificada });
   } catch (error) {
+    console.error(error);
     return res.status(500).json({ message: "Error en la base de datos" });
   }
 });
