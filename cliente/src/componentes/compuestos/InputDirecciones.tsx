@@ -20,7 +20,7 @@ export default function InputDirecciones({
   return (
     <div>
       <div className="flex mt-5">
-        <p className="font-semibold text-lg">Dirección {index + 1}</p>
+        <p className="font-semibold ">Dirección {index + 1}</p>
         <HighlightOff
           className="self-center mt-1  cursor-pointer hover:text-red-500 ml-1 pl-1"
           onClick={() =>
@@ -31,10 +31,14 @@ export default function InputDirecciones({
       <InputLabel>Calle</InputLabel>
       <TextField
         size="small"
+        inputProps={{ "data-testid": `calle${index}` }}
         value={direcciones[index].calle}
         onChange={(e) => {
           const direccionesModificadas = [...direcciones];
-          direccionesModificadas[index].calle = e.target.value;
+          direccionesModificadas[index] = {
+            ...direcciones[index],
+            calle: e.target.value,
+          };
           setDirecciones(direccionesModificadas);
         }}
       />
@@ -45,7 +49,10 @@ export default function InputDirecciones({
         value={direcciones[index].número}
         onChange={(e) => {
           const direccionesModificadas = [...direcciones];
-          direccionesModificadas[index].número = e.target.value;
+          direccionesModificadas[index] = {
+            ...direcciones[index],
+            número: e.target.value,
+          };
           setDirecciones(direccionesModificadas);
         }}
       />
@@ -55,7 +62,10 @@ export default function InputDirecciones({
         value={direcciones[index].ciudad}
         onChange={(e) => {
           const direccionesModificadas = [...direcciones];
-          direccionesModificadas[index].ciudad = e.target.value;
+          direccionesModificadas[index] = {
+            ...direcciones[index],
+            ciudad: e.target.value,
+          };
           setDirecciones(direccionesModificadas);
         }}
       />
