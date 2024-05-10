@@ -12,6 +12,7 @@ const DireccionesSchema = new mongoose.Schema({
 const ContactoSchema = new mongoose.Schema({
   nombre: String,
   apellido: String,
+  correo: String,
   teléfonos: [String],
   direcciones: [DireccionesSchema],
 });
