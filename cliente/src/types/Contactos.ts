@@ -4,9 +4,16 @@ export interface Dirección {
   ciudad: string;
 }
 export interface Contacto {
+  _id?: string;
   nombre: string;
   apellido: string;
   correo: string;
   teléfonos: string[];
   direcciones: Dirección[];
+}
+
+export interface Agenda {
+  contactos: Contacto[];
+  usuario: string;
+  usuarioId: string;
 }
