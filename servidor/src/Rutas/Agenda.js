@@ -50,17 +50,64 @@ rutaAgenda.post("/", AutentificarJWT, async (req, res) => {
   try {
     const agenda = await AgendaModelo.findOne({ usuarioId: id });
     const contactosModificados = [...agenda.contactos, nuevoContacto];
-    const agendaModificada = await AgendaModelo.findByIdAndUpdate(
-      id,
-      { contactos: contactosModificados },
-      { new: true }
-    );
+    const agendaModificada = await agenda.updateOne({
+      contactos: contactosModificados,
+    });
 
     return res.json({ agenda: agendaModificada });
   } catch (error) {
-    console.error(error);
     return res.status(500).json({ message: "Error en la base de datos" });
   }
 });
 
+/**
+ * Actualiza la agenda del usuario
+ * Debe ser una petición PUT
+ * Debe ser un contacto valido en el body con su _id
+ * @param {contactos: Contacto[]}
+ */
+rutaAgenda.put("/", AutentificarJWT, async (req, res) => {
+  //Extraemos el id del token
+  const id = req.user._id;
+
+  //Validamos que el body
+  const nuevoContacto = {
+    _id: req.body._id,
+    nombre: req.body.nombre,
+    apellido: req.body.apellido,
+    correo: req.body.correo,
+    teléfonos: req.body.teléfonos,
+    direcciones: req.body.direcciones,
+  };
+  const ValidarNuevoContacto = require("../Validación/Contacto");
+  try {
+    ValidarNuevoContacto.parse(nuevoContacto);
+  } catch (error) {
+    //Retorna al frontend el error de validación
+    return res.status(400).json({ message: error });
+  }
+
+  //Buscamos el contacto que queremos modificar
+  try {
+    const agenda = await AgendaModelo.findOne({ usuarioId: id });
+    const contactos = agenda.contactos;
+    const indice = contactos.findIndex((contacto) => {
+      const idString = contacto._id.toString();
+      return idString === nuevoContacto._id;
+    });
+
+    //Si no se encuentra el indice retorna
+    if (indice === -1) {
+      return res.status(404).json({ message: "Contacto no encontrado" });
+    }
+    //Actualizamos el contacto
+    contactos[indice] = req.body;
+    const agendaModificada = await agenda.updateOne({
+      contactos: contactos,
+    });
+    return res.json({ agenda: agendaModificada });
+  } catch (error) {
+    return res.status(500).json({ message: "Error en la base de datos" });
+  }
+});
 module.exports = rutaAgenda;
