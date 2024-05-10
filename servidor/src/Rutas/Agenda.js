@@ -74,11 +74,12 @@ rutaAgenda.put("/", AutentificarJWT, async (req, res) => {
   const nuevoContacto = {
     _id: req.body._id,
     nombre: req.body.nombre,
-    apellido: req.body.apellido,
+    apellido: req.body.apellido ?? "",
     correo: req.body.correo,
-    teléfonos: req.body.teléfonos,
-    direcciones: req.body.direcciones,
+    teléfonos: req.body.teléfonos ?? [],
+    direcciones: req.body.direcciones ?? [],
   };
+
   const ValidarNuevoContacto = require("../Validación/Contacto");
   try {
     ValidarNuevoContacto.parse(nuevoContacto);
@@ -104,6 +105,38 @@ rutaAgenda.put("/", AutentificarJWT, async (req, res) => {
     contactos[indice] = req.body;
     const agendaModificada = await agenda.updateOne({
       contactos: contactos,
+    });
+    return res.json({ agenda: agendaModificada });
+  } catch (error) {
+    return res.status(500).json({ message: "Error en la base de datos" });
+  }
+});
+
+/**
+ * Elimina un contacto de la agenda del usuario
+ * Debe ser una petición DELETE
+ * @param {_id: string}
+ *
+ */
+rutaAgenda.delete("/", AutentificarJWT, async (req, res) => {
+  //Extraemos el id del token
+  const id = req.user._id;
+
+  //Validamos la petición
+  //Solo validaremos un campo, por esta ocasión utilizaré validación manual y no la librería Zod
+  if (!id || typeof id !== "string") {
+    return res.status(400).json({ message: "Solicitud inválida" });
+  }
+  //Buscamos la agenda del usuario
+  try {
+    const agenda = await AgendaModelo.findOne({ usuarioId: id });
+    const contactos = agenda.contactos;
+    //Eliminamos el contacto
+    const contactosModificados = contactos.filter(
+      (contacto) => contacto._id.toString() !== id
+    );
+    const agendaModificada = await agenda.updateOne({
+      contactos: contactosModificados,
     });
     return res.json({ agenda: agendaModificada });
   } catch (error) {
