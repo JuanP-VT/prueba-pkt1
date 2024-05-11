@@ -86,7 +86,7 @@ export default function TarjetaContactoEdición({
     //Buscamos el token para adjuntarlo en el headers de la petición http
     const jwt = JSON.parse(localStorage.getItem("pkt1-jwt") || "{}");
 
-    const respuesta = await fetch("http://localhost:8080/agenda", {
+    const respuesta = await fetch("https://pkt1-prueba-api.fly.dev/agenda", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -108,7 +108,7 @@ export default function TarjetaContactoEdición({
   async function manejarEliminación(_id: string) {
     //Buscamos el token para adjuntarlo en el headers de la petición http
     const jwt = JSON.parse(localStorage.getItem("pkt1-jwt") || "{}");
-    const respuesta = await fetch("http://localhost:8080/agenda", {
+    const respuesta = await fetch("https://pkt1-prueba-api.fly.dev/agenda", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -21,4 +21,4 @@ const rutaAgenda = require("./Rutas/Agenda");
 app.use("/usuario", rutaUsuarios);
 app.use("/auth", rutaAuth);
 app.use("/agenda", rutaAgenda);
-app.listen(process.env.PORT || 8080);
+app.listen(3000);

@@ -93,7 +93,7 @@ function FormularioFlotante(props: SimpleDialogProps) {
     const jwt = JSON.parse(localStorage.getItem("pkt1-jwt") || "{}");
 
     //Enviar petición al servidor
-    const respuesta = await fetch("http://localhost:8080/agenda", {
+    const respuesta = await fetch("https://pkt1-prueba-api.fly.dev/agenda", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

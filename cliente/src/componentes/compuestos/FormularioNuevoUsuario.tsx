@@ -70,13 +70,16 @@ export default function FormularioNuevoUsuario() {
 
     //Enviar petición http al endpoint
     try {
-      const respuesta = await fetch("http://localhost:8080/usuario", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const respuesta = await fetch(
+        "https://pkt1-prueba-api.fly.dev//usuario",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formulario),
         },
-        body: JSON.stringify(formulario),
-      });
+      );
       const data = await respuesta.json();
 
       //Mostramos feedback de la petición

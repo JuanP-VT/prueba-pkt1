@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
  * RTK Query para conseguir los contactos
  */
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:8080",
+  baseUrl: "https://pkt1-prueba-api.fly.dev",
   prepareHeaders: (headers) => {
     const jwt = JSON.parse(localStorage.getItem("pkt1-jwt") || "{}");
 

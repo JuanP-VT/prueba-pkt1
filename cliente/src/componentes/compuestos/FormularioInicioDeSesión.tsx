@@ -37,7 +37,7 @@ export default function FormularioInicioDeSesión() {
     setCargando(true);
     ev.preventDefault();
     try {
-      const respuesta = await fetch("http://localhost:8080/auth", {
+      const respuesta = await fetch("https://pkt1-prueba-api.fly.dev/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formulario }),
