@@ -4,9 +4,13 @@
  */
 import { Contacto } from "../types/Contactos";
 export default function filtrarContactos(
-  contactos: Contacto[],
+  contactos: Contacto[] | undefined,
   filtro: string
 ) {
+  // Si no hay contactos, retornamos un array vacío
+  if (!contactos) {
+    return [];
+  }
   return contactos.filter((contacto) => {
     return (
       contacto.nombre.toLowerCase().includes(filtro.toLowerCase()) ||
