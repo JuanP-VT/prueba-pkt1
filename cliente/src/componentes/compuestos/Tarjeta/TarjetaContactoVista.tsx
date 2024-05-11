@@ -23,9 +23,9 @@ export default function TarjetaContactoVista({ contacto, setEdición }: Props) {
         <div className="flex">
           <IconoDePerfil contacto={contacto} />
         </div>
-        <div className="flex flex-col">
-          <p className="font-bold text-xl capitalize">
-            {contacto.nombre} {contacto.apellido}
+        <div className="flex flex-col w-full">
+          <p className="font-bold text-xl capitalize w-10/12">
+            {contacto.nombre.trim()} {contacto.apellido.trim()}
           </p>
           <p className="text-slate-500 text-xs ml-1">{contacto.correo}</p>
         </div>
