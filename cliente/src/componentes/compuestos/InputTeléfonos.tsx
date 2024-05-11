@@ -18,8 +18,9 @@ export default function InputTeléfonos({
   return (
     <div className="flex  pt-1 flex-col">
       <div className="flex pb-1">
-        <p className="text-lg font-semibold">Teléfono {index + 1}</p>
+        <p className="font-semibold">Teléfono {index + 1}</p>
         <HighlightOff
+          data-testid={`delete-${index}`}
           className=" mt-1 cursor-pointer hover:text-red-500 ml-2 pl-1 "
           onClick={() => {
             setTeléfonos((teléfonos) =>

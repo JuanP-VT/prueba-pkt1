@@ -12,11 +12,12 @@ const DireccionesSchema = new mongoose.Schema({
 const ContactoSchema = new mongoose.Schema({
   nombre: String,
   apellido: String,
+  correo: String,
   teléfonos: [String],
   direcciones: [DireccionesSchema],
 });
 const AgendaSchema = new mongoose.Schema({
-  _id: String, //MongodbID del usuario
+  usuarioId: String, //MongodbID del usuario
   usuario: String, //Nombre del usuario al que pertenece la agenda
   contactos: [ContactoSchema],
 });

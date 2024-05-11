@@ -1,11 +1,12 @@
+/**
+ *  Barra de navegación principal
+ */
 import { Link } from "react-router-dom";
-import { UsuarioID } from "../../types/Usuario";
 import BotónSesión from "../ui/BotónDeSesión";
+import getUsuario from "../../utils/getUsuario";
 
-type Props = {
-  usuario: UsuarioID | null;
-};
-export default function Navegación({ usuario }: Props) {
+export default function Navegación() {
+  const usuario = getUsuario();
   return (
     <div className="w-full h-15 flex border shadow-2xl py-3 rounded-lg justify-around">
       <Link to="/">Inicio</Link>

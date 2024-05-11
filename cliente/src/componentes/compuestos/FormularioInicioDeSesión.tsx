@@ -1,21 +1,21 @@
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { useState } from "react";
-import { Usuario, UsuarioID } from "../../types/Usuario";
+import { Usuario } from "../../types/Usuario";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { PuffLoader } from "react-spinners";
 import { Link } from "react-router-dom";
-import { redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import getUsuario from "../../utils/getUsuario";
 /**
  * Componente para mostrar el formulario de inicio de sesión
  * Si el usuario ya está autenticado, redirige a la página principal
  *
  * Contiene validación y feedback
  */
-type Props = {
-  usuario: UsuarioID | null;
-};
-export default function FormularioInicioDeSesión({ usuario }: Props) {
+
+export default function FormularioInicioDeSesión() {
+  const usuario = getUsuario();
   //Estado para guardar la información del usuario
   const [formulario, setFormulario] = useState<Usuario>({
     nombre: "",
@@ -30,8 +30,7 @@ export default function FormularioInicioDeSesión({ usuario }: Props) {
 
   //Desviar al usuario si ya está autenticado
   if (usuario) {
-    redirect("/");
-    return <></>; //retornar jsx para evitar conflicto con typescript
+    return <Navigate to={"/"} />;
   }
   //Manejar la petición para iniciar sesión
   async function manejarPetición(ev: React.FormEvent) {

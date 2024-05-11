@@ -3,15 +3,11 @@
  */
 
 import FormularioNuevoUsuario from "../compuestos/FormularioNuevoUsuario";
-import { UsuarioID } from "../../types/Usuario";
 
-type Props = {
-  usuario: UsuarioID | null;
-};
-export default function InicioSesión({ usuario }: Props) {
+export default function InicioSesión() {
   return (
     <div>
-      <FormularioNuevoUsuario usuario={usuario} />
+      <FormularioNuevoUsuario />
     </div>
   );
 }
