@@ -21,7 +21,7 @@ export default function Inicio() {
         </div>
         <div>
           <img
-            src="../../../public/pkt1contacto.png"
+            src="/pkt1contacto.png"
             className="w-full rounded-xl sm:w-[600px] "
           />
         </div>
