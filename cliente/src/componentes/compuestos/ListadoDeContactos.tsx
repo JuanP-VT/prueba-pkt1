@@ -66,7 +66,7 @@ export default function ListadoDeContactos() {
                 page={páginaActual}
                 count={contactosFiltradosPaginados.length}
                 color="primary"
-                onChange={(ev, page) => {
+                onChange={(_, page) => {
                   setPáginaActual(page);
                 }}
               />
