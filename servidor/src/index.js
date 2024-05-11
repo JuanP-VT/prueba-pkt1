@@ -18,7 +18,9 @@ app.get("/", async (req, res) => {
 const rutaUsuarios = require("./Rutas/Usuario");
 const rutaAuth = require("./Rutas/Auth");
 const rutaAgenda = require("./Rutas/Agenda");
+const rutaDemo = require("./Rutas/Demo");
 app.use("/usuario", rutaUsuarios);
 app.use("/auth", rutaAuth);
 app.use("/agenda", rutaAgenda);
+app.use("/demo", rutaDemo);
 app.listen(3000);
