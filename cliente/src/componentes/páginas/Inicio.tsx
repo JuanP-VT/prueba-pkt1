@@ -42,7 +42,7 @@ export default function Inicio() {
             tus dispositivos
           </p>
         </div>
-        <div className="mt-5  flex flex-col items-center justify-center gap-5 p-3 sm:grid sm:grid-cols-2 sm:p-10 lg:grid-cols-3">
+        <div className="mt-5  flex flex-col justify-center gap-5 p-3 sm:grid sm:grid-cols-2 sm:p-10 lg:grid-cols-3">
           <div className="flex flex-col">
             <p className="p-2 text-lg font-bold">Restauración y Respaldo</p>
             <p className="px-2 text-sm text-slate-600">
