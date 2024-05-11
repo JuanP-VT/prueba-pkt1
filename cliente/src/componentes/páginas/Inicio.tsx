@@ -16,7 +16,7 @@ export default function Inicio() {
             organizados y sincronizados en la nube.
           </p>
           <Button style={{ backgroundColor: "#7caaee" }} variant="contained">
-            <Link to="/auth">Comienza</Link>
+            <Link to="/agenda">Comienza</Link>
           </Button>
         </div>
         <div>

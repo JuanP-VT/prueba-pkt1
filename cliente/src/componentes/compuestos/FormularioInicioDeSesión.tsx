@@ -30,7 +30,7 @@ export default function FormularioInicioDeSesión() {
 
   //Desviar al usuario si ya está autenticado
   if (usuario) {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/agenda"} />;
   }
   //Manejar la petición para iniciar sesión
   async function manejarPetición(ev: React.FormEvent) {
@@ -49,7 +49,7 @@ export default function FormularioInicioDeSesión() {
         localStorage.setItem("pkt1-jwt", JSON.stringify(jwt));
         //Redirigir al usuario
         setTimeout(() => {
-          location.href = "/";
+          location.href = "/agenda";
         }, 1000);
       } else {
         setCargando(false);

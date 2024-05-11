@@ -9,7 +9,7 @@ import getUsuario from "../../utils/getUsuario";
 export default function Agenda() {
   const usuario = getUsuario();
   if (!usuario) {
-    return <Navigate to="/" />;
+    return <Navigate to="/auth" />;
   }
   return (
     <div>
