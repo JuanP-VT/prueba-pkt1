@@ -60,7 +60,7 @@ export default function ListadoDeContactos() {
           {contactosFiltrados.length === 0 && (
             <p className="py-5 text-center">No se encontraron contactos</p>
           )}
-          <div>
+          <div className="my-3">
             <Stack spacing={2}>
               <Pagination
                 page={páginaActual}

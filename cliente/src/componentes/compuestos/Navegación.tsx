@@ -8,9 +8,13 @@ import getUsuario from "../../utils/getUsuario";
 export default function Navegación() {
   const usuario = getUsuario();
   return (
-    <div className="h-15 flex w-full justify-around rounded-lg border py-3 shadow-2xl">
-      <Link to="/">Inicio</Link>
-      <Link to="/agenda">Agenda</Link>
+    <div className="h-15 flex w-full justify-center gap-3 rounded-lg border  bg-slate-200 py-3 sm:justify-around ">
+      <Link className="font-bold  hover:text-blue-500" to="/">
+        Inicio
+      </Link>
+      <Link className="font-bold  hover:text-blue-500 " to="/agenda">
+        Agenda
+      </Link>
       <BotónSesión usuario={usuario} />
     </div>
   );
