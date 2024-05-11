@@ -113,7 +113,7 @@ export default function Inicio() {
             nombre="Cristian"
             apellido="Gonzalez"
             puesto="Transito Municipal"
-            comentario="Excelente aplicación. Lo recomiendo."
+            comentario="Excelente aplicación. Lo recomiendo. Manejar mis contactos jamás ha sido tan fácil gracias a la maravilla que es PKTContacto!. Instalar esta app es una de las mejores decisiones de mi vida"
           />
         </div>
       </div>
