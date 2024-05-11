@@ -91,7 +91,7 @@ export default function Inicio() {
           <p className="text-center text-5xl font-bold">
             Lo Que Dicen Nuestros Usuarios
           </p>
-          <p className="text-xl text-slate-600">
+          <p className="mt-1 text-center text-xl text-slate-600">
             Personas reales que han utilizado PKTContacto para mantener sus
             contactos seguros y organizados
           </p>
