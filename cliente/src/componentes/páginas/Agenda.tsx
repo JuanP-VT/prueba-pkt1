@@ -4,7 +4,6 @@
 
 import { redirect } from "react-router-dom";
 
-import FormularioNuevoContacto from "../compuestos/FormularioNuevoContacto";
 import ListadoDeContactos from "../compuestos/ListadoDeContactos";
 import getUsuario from "../../utils/getUsuario";
 
@@ -16,7 +15,6 @@ export default function Agenda() {
   }
   return (
     <div>
-      <FormularioNuevoContacto />
       <ListadoDeContactos />
     </div>
   );
