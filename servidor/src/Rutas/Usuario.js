@@ -52,7 +52,6 @@ rutaUsuarios.post("/", async (req, res) => {
     await nuevoAgenda.save();
     return res.json({ message: "Usuario creado exitosamente" }).status(200);
   } catch (error) {
-    console.error(error);
     return res.status(500).json({ message: error });
   }
 });

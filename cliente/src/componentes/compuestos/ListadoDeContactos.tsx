@@ -58,7 +58,7 @@ export default function ListadoDeContactos() {
                 },
               },
             );
-            console.log(respuesta);
+
             if (respuesta.ok) {
               location.reload();
             }

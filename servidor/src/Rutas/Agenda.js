@@ -140,7 +140,6 @@ rutaAgenda.delete("/", AutentificarJWT, async (req, res) => {
     });
     return res.json({ agenda: agendaModificada });
   } catch (error) {
-    console.error(error);
     return res.status(500).json({ message: "Error en la base de datos" });
   }
 });
