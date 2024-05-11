@@ -5,6 +5,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Edit } from "@mui/icons-material";
+import IconoDePerfil from "../IconoDePerfil";
 type Props = {
   contacto: Contacto;
   setEdición: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,7 +22,10 @@ export default function TarjetaContactoVista({ contacto, setEdición }: Props) {
       />
       <div className="flex gap-5">
         <div className="flex">
-          <IconoDePerfil contacto={contacto} />
+          <IconoDePerfil
+            nombre={contacto.nombre}
+            apellido={contacto.apellido}
+          />
         </div>
         <div className="flex w-full flex-col">
           <p className="w-10/12 text-xl font-bold capitalize">
@@ -57,18 +61,6 @@ export default function TarjetaContactoVista({ contacto, setEdición }: Props) {
           </AccordionDetails>
         </Accordion>
       </div>
-    </div>
-  );
-}
-type PropsDelIcono = {
-  contacto: Contacto;
-};
-function IconoDePerfil({ contacto }: PropsDelIcono) {
-  //Conseguimos la primera letra del nombre y la primera letra del apellido
-  const iniciales = `${contacto.nombre[0]}${contacto.apellido[0] ?? ""}`;
-  return (
-    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 p-2 text-xs font-semibold">
-      {iniciales.toUpperCase()}
     </div>
   );
 }
