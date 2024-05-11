@@ -43,6 +43,10 @@ describe("filtrarContactos", () => {
       ],
     },
   ];
+  test("retorna todos los contactos si no hay filtro", () => {
+    const filtrados = filtrarContactos(contactos, "");
+    expect(filtrados).toEqual(contactos);
+  });
   test("debe filtrar contactos por nombre", () => {
     const filtrados = filtrarContactos(contactos, "Ivan");
     expect(filtrados).toEqual([contactos[2]]);
