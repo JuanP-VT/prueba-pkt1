@@ -33,7 +33,7 @@ export default function FormularioNuevoUsuario() {
   const [errorEnLaContraseña, setErrorEnLaContraseña] = useState(false);
   //Desviar al usuario si ya está autenticado
   if (usuario) {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/agenda"} />;
   }
   //Definimos la función para manejar la petición del formulario
   async function manejarPetición(ev: React.FormEvent) {
@@ -70,16 +70,13 @@ export default function FormularioNuevoUsuario() {
 
     //Enviar petición http al endpoint
     try {
-      const respuesta = await fetch(
-        "https://pkt1-prueba-api.fly.dev//usuario",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formulario),
+      const respuesta = await fetch("https://pkt1-prueba-api.fly.dev/usuario", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify(formulario),
+      });
       const data = await respuesta.json();
 
       //Mostramos feedback de la petición
@@ -93,7 +90,7 @@ export default function FormularioNuevoUsuario() {
       if (respuesta.ok) {
         setFeedback("Usuario creado exitosamente");
         setTimeout(() => {
-          location.reload();
+          location.href = "/auth";
         }, 1000);
       } else {
         //Se puede extender más la validación dependiendo de los requerimientos
