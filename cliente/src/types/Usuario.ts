@@ -1,3 +1,6 @@
+/**
+ * Representa la estructura de un usuario
+ */
 export interface Usuario {
   nombre: string;
   contraseña?: string;

@@ -14,7 +14,7 @@ type Props = {
  */
 export default function TarjetaContactoVista({ contacto, setEdición }: Props) {
   return (
-    <div className="w-full p-5 cursor-pointer hover:bg-slate-100 group relative">
+    <div className="group relative w-full cursor-pointer p-5 hover:bg-slate-100">
       <Edit
         className="absolute right-2 hover:text-blue-500"
         onClick={() => setEdición(true)}
@@ -23,19 +23,19 @@ export default function TarjetaContactoVista({ contacto, setEdición }: Props) {
         <div className="flex">
           <IconoDePerfil contacto={contacto} />
         </div>
-        <div className="flex flex-col w-full">
-          <p className="font-bold text-xl capitalize w-10/12">
+        <div className="flex w-full flex-col">
+          <p className="w-10/12 text-xl font-bold capitalize">
             {contacto.nombre.trim()} {contacto.apellido.trim()}
           </p>
-          <p className="text-slate-500 text-xs ml-1">{contacto.correo}</p>
+          <p className="ml-1 text-xs text-slate-500">{contacto.correo}</p>
         </div>
       </div>
-      <div className="flex flex-col p-2 mt-3">
-        <p className="text-xs text-blue-500 font-semibold">Teléfonos</p>
+      <div className="mt-3 flex flex-col p-2">
+        <p className="text-xs font-semibold text-blue-500">Teléfonos</p>
         {contacto.teléfonos.map((tel, index) => (
           <div className="flex gap-2 " key={index}>
-            <Phone className="text-slate-500 mt-1" />
-            <p className="text-slate-500 py-1">{tel}</p>
+            <Phone className="mt-1 text-slate-500" />
+            <p className="py-1 text-slate-500">{tel}</p>
           </div>
         ))}
       </div>
@@ -67,7 +67,7 @@ function IconoDePerfil({ contacto }: PropsDelIcono) {
   //Conseguimos la primera letra del nombre y la primera letra del apellido
   const iniciales = `${contacto.nombre[0]}${contacto.apellido[0] ?? ""}`;
   return (
-    <div className="rounded-full w-10 font-semibold h-10 bg-slate-200 text-xs p-2 flex items-center justify-center">
+    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 p-2 text-xs font-semibold">
       {iniciales.toUpperCase()}
     </div>
   );

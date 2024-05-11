@@ -103,12 +103,12 @@ export default function FormularioNuevoUsuario() {
     }
   }
   return (
-    <div className="w-full justify-center flex">
+    <div className="flex w-full justify-center">
       <form
         onSubmit={(ev) => manejarPetición(ev)}
-        className="flex flex-col p-3 gap-2 sm:w-[300px]"
+        className="flex flex-col gap-2 p-3 sm:w-[300px]"
       >
-        <h1 className="font-semibold p-2">Registrar Nuevo Usuario</h1>
+        <h1 className="p-2 font-semibold">Registrar Nuevo Usuario</h1>
         <TextField
           inputProps={{ "data-testid": "nombre" }}
           error={errorEnElNombre}
@@ -122,7 +122,7 @@ export default function FormularioNuevoUsuario() {
         >
           Nombre De Usuario
         </TextField>
-        <div className="flex relative">
+        <div className="relative flex">
           <TextField
             inputProps={{ "data-testid": "contraseña" }}
             error={errorEnLaContraseña}

@@ -17,7 +17,7 @@ describe("FormularioNuevoUsuario", () => {
   test("actualiza el estado cuando se cambia el nombre de usuario", () => {
     render(<FormularioNuevoUsuario />);
     const nombreInput = screen.getByPlaceholderText(
-      "Nombre de usuario"
+      "Nombre de usuario",
     ) as HTMLInputElement;
     fireEvent.change(nombreInput, { target: { value: "nuevoUsuario" } });
     expect(nombreInput.value).toBe("nuevoUsuario");
@@ -26,7 +26,7 @@ describe("FormularioNuevoUsuario", () => {
   test("actualiza el estado cuando se cambia la contraseña", () => {
     render(<FormularioNuevoUsuario />);
     const contraseñaInput = screen.getByPlaceholderText(
-      "Contraseña"
+      "Contraseña",
     ) as HTMLInputElement;
     fireEvent.change(contraseñaInput, {
       target: { value: "NuevaContraseña123" },
@@ -40,7 +40,7 @@ describe("FormularioNuevoUsuario", () => {
     fireEvent.change(nombreInput, { target: { value: "a" } });
     fireEvent.submit(screen.getByRole("button", { name: "Registrar" }));
     await waitFor(() =>
-      expect(screen.getByText(/4 caracteres/)).toBeInTheDocument()
+      expect(screen.getByText(/4 caracteres/)).toBeInTheDocument(),
     );
   });
 
@@ -50,7 +50,7 @@ describe("FormularioNuevoUsuario", () => {
     fireEvent.change(contraseñaInput, { target: { value: "abc" } });
     fireEvent.submit(screen.getByRole("button", { name: "Registrar" }));
     await waitFor(() =>
-      expect(screen.getByText(/4 caracteres/)).toBeInTheDocument()
+      expect(screen.getByText(/4 caracteres/)).toBeInTheDocument(),
     );
   });
 
@@ -75,7 +75,7 @@ describe("FormularioNuevoUsuario", () => {
     });
     fireEvent.submit(screen.getByRole("button"));
     await waitFor(() =>
-      expect(screen.getByText(/ya está registrado/)).toBeInTheDocument()
+      expect(screen.getByText(/ya está registrado/)).toBeInTheDocument(),
     );
   });
 

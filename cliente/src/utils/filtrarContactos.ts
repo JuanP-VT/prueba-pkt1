@@ -5,7 +5,7 @@
 import { Contacto } from "../types/Contactos";
 export default function filtrarContactos(
   contactos: Contacto[] | undefined,
-  filtro: string
+  filtro: string,
 ) {
   // Si no hay contactos, retornamos un array vacío
   if (!contactos) {
@@ -18,13 +18,13 @@ export default function filtrarContactos(
       contacto.correo.toLowerCase().includes(filtro.toLowerCase()) ||
       contacto.teléfonos.some((tel) => tel.includes(filtro)) ||
       contacto.direcciones.some((dir) =>
-        dir.calle.toLowerCase().includes(filtro.toLowerCase())
+        dir.calle.toLowerCase().includes(filtro.toLowerCase()),
       ) ||
       contacto.direcciones.some((dir) =>
-        dir.ciudad.toLowerCase().includes(filtro.toLowerCase())
+        dir.ciudad.toLowerCase().includes(filtro.toLowerCase()),
       ) ||
       contacto.direcciones.some((dir) =>
-        dir.número.toLowerCase().includes(filtro.toLowerCase())
+        dir.número.toLowerCase().includes(filtro.toLowerCase()),
       )
     );
   });

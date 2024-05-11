@@ -1,3 +1,7 @@
+/**
+ * Validación para el esquema de contactos
+ * Solo se valida nombre y correo
+ */
 import z from "zod";
 
 const validarNombre = z.string().min(1, {

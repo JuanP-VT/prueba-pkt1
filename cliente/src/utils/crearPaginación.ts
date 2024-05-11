@@ -9,7 +9,7 @@
 //
 export default function crearPaginación(
   lista: unknown[],
-  objectosPorPágina: number
+  objectosPorPágina: number,
 ) {
   const paginación = [];
   //Utilizaremos mutación para crear el array final

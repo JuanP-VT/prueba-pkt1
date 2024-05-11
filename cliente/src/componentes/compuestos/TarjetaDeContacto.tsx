@@ -14,7 +14,7 @@ export default function TarjetaDeContacto({ contacto }: Props) {
   //Estado indicar al componente si mostrar el modo de edición o no
   const [edición, setEdición] = useState(false);
   return (
-    <div className="sm:w-[390px] border rounded-xl ">
+    <div className="rounded-xl border sm:w-[390px] ">
       {edición ? (
         <TarjetaContactoEdición contacto={contacto} setEdición={setEdición} />
       ) : (

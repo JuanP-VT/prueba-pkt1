@@ -1,4 +1,7 @@
-//Retorna al usuario si está autenticado o null si no lo está
+/**
+ * Retorna al usuario si está autenticado o null si no lo está
+ * Utiliza local storage
+ */
 import { JwtPayload, jwtDecode } from "jwt-decode";
 import { UsuarioID } from "../types/Usuario";
 export default function getUsuario(): UsuarioID | null {

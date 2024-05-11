@@ -19,7 +19,7 @@ describe("TarjetaContactoedicion component", () => {
 
   test("Muestra los detalles del contacto correctamente", () => {
     const { getByTestId } = render(
-      <TarjetaContactoEdición contacto={contacto} setEdición={setEdición} />
+      <TarjetaContactoEdición contacto={contacto} setEdición={setEdición} />,
     );
 
     expect(getByTestId("correo")).toHaveValue(contacto.correo);
@@ -29,7 +29,7 @@ describe("TarjetaContactoedicion component", () => {
 
   test("Actualiza los valores correctamente", async () => {
     render(
-      <TarjetaContactoEdición contacto={contacto} setEdición={setEdición} />
+      <TarjetaContactoEdición contacto={contacto} setEdición={setEdición} />,
     );
 
     const nombreInput = screen.getByTestId("nombre");
@@ -49,7 +49,7 @@ describe("TarjetaContactoedicion component", () => {
 
   test("Muestra feedback correctamente", async () => {
     render(
-      <TarjetaContactoEdición contacto={contacto} setEdición={setEdición} />
+      <TarjetaContactoEdición contacto={contacto} setEdición={setEdición} />,
     );
 
     const correoInput = screen.getByTestId("correo");

@@ -116,7 +116,7 @@ function FormularioFlotante(props: SimpleDialogProps) {
 
   return (
     <Dialog onClose={handleClose} open={open}>
-      <DialogTitle className="text-blue-500 self-center">
+      <DialogTitle className="self-center text-blue-500">
         Nuevo Contacto
       </DialogTitle>
       <form className="p-5" onSubmit={(ev) => manejarPetición(ev)}>
@@ -166,7 +166,7 @@ function FormularioFlotante(props: SimpleDialogProps) {
             className="w-52 "
           >
             <p className="font-semibold">Agregar Teléfono</p>
-            <AddCircleOutline className="cursor-pointer my-1 pl-1" />
+            <AddCircleOutline className="my-1 cursor-pointer pl-1" />
           </Button>
           {teléfonos.map((_, index) => (
             <InputTeléfonos
@@ -201,11 +201,11 @@ function FormularioFlotante(props: SimpleDialogProps) {
               }}
             >
               <p className="font-semibold">Agregar Dirección</p>
-              <AddCircleOutline className="cursor-pointer my-1 pl-1" />
+              <AddCircleOutline className="my-1 cursor-pointer pl-1" />
             </Button>
           </div>
           <div className="mt-10">
-            {feedback && <p className="text-red-500 py-2">{feedback}</p>}
+            {feedback && <p className="py-2 text-red-500">{feedback}</p>}
             {cargando ? (
               <PuffLoader size={15} />
             ) : (

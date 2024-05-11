@@ -1,3 +1,6 @@
+/**
+ * Representa la estructura de la agenda de contactos
+ */
 export interface Dirección {
   calle: string;
   número: string;

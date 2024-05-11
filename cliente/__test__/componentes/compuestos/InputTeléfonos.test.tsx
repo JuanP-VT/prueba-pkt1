@@ -19,7 +19,7 @@ describe("InputTeléfonos", () => {
         teléfonos={teléfonos}
         setTeléfonos={setTeléfonos}
         index={0}
-      />
+      />,
     );
     const inputFields = getAllByRole("textbox");
     expect(inputFields).toHaveLength(1);
@@ -32,7 +32,7 @@ describe("InputTeléfonos", () => {
         teléfonos={teléfonos}
         setTeléfonos={setTeléfonos}
         index={0}
-      />
+      />,
     );
     const inputField = getByRole("textbox");
     fireEvent.change(inputField, { target: { value: "0987654321" } });

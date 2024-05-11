@@ -124,13 +124,13 @@ export default function TarjetaContactoEdición({
     }
   }
   return (
-    <div className="flex flex-col items-center relative p-2 py-5 ">
+    <div className="relative flex flex-col items-center p-2 py-5 ">
       <Undo
-        className="absolute right-2 hover:text-blue-500 cursor-pointer"
+        className="absolute right-2 cursor-pointer hover:text-blue-500"
         onClick={() => setEdición(false)}
       />
       <DeleteOutline
-        className="absolute right-2 top-14 hover:text-red-500 cursor-pointer"
+        className="absolute right-2 top-14 cursor-pointer hover:text-red-500"
         onClick={handleOpen}
       />
       <Modal
@@ -151,7 +151,7 @@ export default function TarjetaContactoEdición({
             Borrar
           </Button>
           <Undo
-            className="absolute right-2 top-1 hover:text-blue-500 cursor-pointer"
+            className="absolute right-2 top-1 cursor-pointer hover:text-blue-500"
             onClick={handleClose}
           />
         </ModalContent>
@@ -213,7 +213,7 @@ export default function TarjetaContactoEdición({
               className="w-52 "
             >
               <p className="font-semibold">Agregar Teléfono</p>
-              <AddCircleOutline className="cursor-pointer my-1 pl-1" />
+              <AddCircleOutline className="my-1 cursor-pointer pl-1" />
             </Button>
           </div>
           <div>
@@ -236,12 +236,12 @@ export default function TarjetaContactoEdición({
               className="w-52 "
             >
               <p className="font-semibold">Agregar Dirección</p>
-              <AddCircleOutline className="cursor-pointer my-1 pl-1" />
+              <AddCircleOutline className="my-1 cursor-pointer pl-1" />
             </Button>
           </div>
         </div>
         {feedback && (
-          <p className="text-red-500 text-xs font-semibold mt-2">{feedback}</p>
+          <p className="mt-2 text-xs font-semibold text-red-500">{feedback}</p>
         )}
 
         {cargando ? (
@@ -337,5 +337,5 @@ export const ModalContent = styled("div")(
       color: ${theme.palette.mode === "dark" ? grey[400] : grey[800]};
       margin-bottom: 4px;
     }
-  `
+  `,
 );

@@ -32,7 +32,7 @@ describe("getUsuario", () => {
   it("debería devolver null si el token JWT es inválido", () => {
     localStorage.setItem(
       "pkt1-jwt",
-      JSON.stringify({ token: "token.invalido" })
+      JSON.stringify({ token: "token.invalido" }),
     );
 
     const sesión = getUsuario();

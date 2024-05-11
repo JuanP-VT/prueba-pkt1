@@ -19,10 +19,10 @@ export default function InputDirecciones({
 }: Props) {
   return (
     <div>
-      <div className="flex mt-5">
+      <div className="mt-5 flex">
         <p className="font-semibold ">Dirección {index + 1}</p>
         <HighlightOff
-          className="self-center mt-1  cursor-pointer hover:text-red-500 ml-1 pl-1"
+          className="ml-1 mt-1  cursor-pointer self-center pl-1 hover:text-red-500"
           onClick={() =>
             setDirecciones(direcciones.filter((_, i) => i !== index))
           }

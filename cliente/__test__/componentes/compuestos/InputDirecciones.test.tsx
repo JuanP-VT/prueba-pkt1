@@ -31,7 +31,7 @@ describe("InputDirecciones", () => {
         direcciones={direcciones}
         setDirecciones={setDirecciones}
         index={0}
-      />
+      />,
     );
     const inputFields = getAllByRole("textbox");
     expect(inputFields).toHaveLength(2);

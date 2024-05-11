@@ -61,13 +61,13 @@ export default function FormularioInicioDeSesión() {
     }
   }
   return (
-    <div className="w-full  flex-col justify-center flex items-center">
-      <div className="flex flex-col max-w-[300px]">
+    <div className="flex  w-full flex-col items-center justify-center">
+      <div className="flex max-w-[300px] flex-col">
         <form
           onSubmit={(ev) => manejarPetición(ev)}
-          className="flex flex-col p-3 gap-2 sm:w-[300px]"
+          className="flex flex-col gap-2 p-3 sm:w-[300px]"
         >
-          <h1 className="font-semibold p-2">Iniciar Sesión</h1>
+          <h1 className="p-2 font-semibold">Iniciar Sesión</h1>
           <TextField
             inputProps={{ "data-testid": "nombre" }}
             value={formulario.nombre}
@@ -80,7 +80,7 @@ export default function FormularioInicioDeSesión() {
           >
             Nombre De Usuario
           </TextField>
-          <div className="flex relative">
+          <div className="relative flex">
             <TextField
               inputProps={{ "data-testid": "contraseña" }}
               value={formulario.contraseña}
@@ -126,7 +126,7 @@ export default function FormularioInicioDeSesión() {
         <div className="flex flex-col px-2">
           <p className="p-1 text-sm font-semibold">¿No tienes cuenta?</p>
           <Link
-            className="text-sm ml-2 text-pktVerde hover:text-pktAzul font-bold"
+            className="ml-2 text-sm font-bold text-pktVerde hover:text-pktAzul"
             to="/registrar"
           >
             Regístrate
