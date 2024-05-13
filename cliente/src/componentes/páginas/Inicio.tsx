@@ -7,7 +7,7 @@ export default function Inicio() {
     <div className="flex w-full flex-col">
       <div className="flex flex-col items-center justify-center gap-3 bg-zinc-100 p-6 sm:pt-20 md:flex-row md:p-10">
         <div className="flex  flex-col gap-3">
-          <p className="text-4xl font-bold sm:text-6xl">
+          <p className="text-center text-4xl font-bold sm:text-6xl">
             Nunca Vuelvas A <br />
             Perder Tus Contactos
           </p>
@@ -16,7 +16,9 @@ export default function Inicio() {
             organizados y sincronizados en la nube.
           </p>
           <Button style={{ backgroundColor: "#7caaee" }} variant="contained">
-            <Link to="/agenda">Comienza</Link>
+            <Link className="w-full" to="/agenda">
+              Comienza
+            </Link>
           </Button>
         </div>
         <div>
@@ -26,31 +28,31 @@ export default function Inicio() {
           />
         </div>
       </div>
-      <div className="flex flex-col bg-sky-100">
+      <div className="flex flex-col rounded-lg bg-sky-100">
         <div className="t mt-10 flex justify-center">
           <p className="rounded-lg bg-slate-200 p-3 text-center text-xs font-semibold">
             Funcionalidades
           </p>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <p className="mt-5 py-2 text-center text-4xl font-bold">
+          <p className="mt-5 p-1 py-4 text-center text-4xl font-bold">
             Una Poderosa Herramienta Para Manejar Tus Contactos
           </p>
-          <p className="max-w-[700px] text-center text-xl text-slate-600">
+          <p className="max-w-[700px] p-1 text-center text-xl text-slate-600">
             PKTContacto ofrece una gran variedad de funcionalidades para
             mantener tus contactos seguros, organizados y accesibles desde todos
             tus dispositivos
           </p>
         </div>
-        <div className="mt-5  flex flex-col justify-center gap-5 p-3 sm:grid sm:grid-cols-2 sm:p-10 lg:grid-cols-3">
+        <div className="mt-5  flex flex-col justify-center gap-5 p-3 sm:grid sm:grid-cols-2 sm:p-16 lg:grid-cols-3">
           <div className="flex flex-col">
-            <p className="p-2 text-lg font-bold">Restauración y Respaldo</p>
+            <p className="p-2 text-lg font-bold ">Restauración y Respaldo</p>
             <p className="px-2 text-sm text-slate-600">
               Guarda fácilmente tus contactos en la nube desde cualquier parte
             </p>
           </div>
           <div className="flex flex-col">
-            <p className="p-2 text-lg font-bold">Sincronización En La Nube</p>
+            <p className="p-2 text-lg font-bold ">Sincronización En La Nube</p>
             <p className="px-2 text-sm text-slate-600">
               Mantenga sus contactos actualizados y accesibles en todos sus
               dispositivos
@@ -58,7 +60,7 @@ export default function Inicio() {
           </div>
 
           <div className="flex flex-col">
-            <p className="p-2 text-lg font-bold">Organización</p>
+            <p className="p-2 text-lg font-bold ">Organización</p>
             <p className="px-2 text-sm text-slate-600">
               Clasifique y administre sus contactos con etiquetas y filtros
               personalizados
@@ -72,14 +74,14 @@ export default function Inicio() {
             </p>
           </div>
           <div className="flex flex-col">
-            <p className="p-2 text-lg font-bold">Seguro y Privado</p>
+            <p className="p-2 text-lg font-bold ">Seguro y Privado</p>
             <p className="px-2 text-sm text-slate-600">
               Sus contactos están almacenados de forma segura, sin acceso de
               terceros
             </p>
           </div>
           <div className="flex flex-col">
-            <p className="p-2 text-lg font-bold">Más..</p>
+            <p className="p-2 text-lg font-bold ">Más..</p>
             <p className="px-2 text-sm text-slate-600">
               Descubre toda las capacidades de PKTContacto
             </p>
@@ -88,15 +90,15 @@ export default function Inicio() {
       </div>
       <div className="flex flex-col bg-slate-100">
         <div className="mt-10 flex flex-col items-center  p-5">
-          <p className="text-center text-5xl font-bold">
+          <p className="text-center text-4xl font-bold ">
             Lo Que Dicen Nuestros Usuarios
           </p>
-          <p className="mt-1 text-center text-xl text-slate-600">
+          <p className="mt-2 text-center text-xl text-slate-600">
             Personas reales que han utilizado PKTContacto para mantener sus
             contactos seguros y organizados
           </p>
         </div>
-        <div className="mt-5 flex flex-col items-center justify-center gap-3 p-2 sm:grid md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-5 flex flex-col items-center justify-center gap-3 p-2 py-10 sm:grid md:grid-cols-2 xl:grid-cols-3">
           <TarjetaReview
             nombre="Miguel"
             apellido="Gonzalez"
