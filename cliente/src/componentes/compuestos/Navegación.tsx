@@ -15,6 +15,7 @@ export default function Navegación() {
       <Link className="font-bold  hover:text-blue-500 " to="/agenda">
         Agenda
       </Link>
+      {usuario && <p className="capitalize underline">{usuario?.nombre}</p>}
       <BotónSesión usuario={usuario} />
     </div>
   );
